@@ -1,0 +1,20 @@
+#!/bin/sh
+
+sudo apt-get install -y libgstreamer-plugins-base1.0-dev\
+    libgstreamer-plugins-good1.0-dev\
+    libgstreamer-plugins-bad1.0-dev\
+    libgstrtspserver-1.0-dev
+
+mkdir -p ~/rtsp_ws/src
+cd ~/rtsp_ws
+catkin_make
+source ~/rtsp_ws/devel/setup.sh
+cd ~/rtsp_ws/src
+git clone https://github.com/parvusvox/ros_rtsp
+cd ~/rtsp_ws
+
+catkin_make pkg:=ros_rtsp
+
+cd ~/rtsp_ws/src/ros_rtsp
+sed -i 's/USERNAME/$(whoami)' roscore_temp.service > roscore.service
+
