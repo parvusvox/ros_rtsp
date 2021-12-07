@@ -1,6 +1,5 @@
 #!/bin/bash
 source ~/catkin_ws/devel/setup.bash
-export ROS_HOME=USERNAME/.ros
 roslaunch ros_rtsp rtsp_streams.launch &
 PID=$!
 wait "$PID"

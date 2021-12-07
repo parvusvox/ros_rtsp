@@ -20,7 +20,6 @@ USERNAME=$(whoami)
 ROSVER=$(rosversion -d)
 sed -i "s/ROSVER/${ROSVER}/g" roscore_temp.service
 sed "s/USERNAME/${USERNAME}/g" roscore_temp.service > roscore.service
-sed "s/USERNAME/${USERNAME}/g" roslaunch_temp > roslaunch
 sed "s/USERNAME/${USERNAME}/g" roslaunch_temp.service > roslaunch.service
 
 sudo cp roscore.service /etc/systemd/system
