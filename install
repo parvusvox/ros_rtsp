@@ -24,7 +24,6 @@ sed "s/USERNAME/${USERNAME}/g" roslaunch_temp > roslaunch
 sed "s/USERNAME/${USERNAME}/g" roslaunch_temp.service > roslaunch.service
 
 sudo cp roscore.service /etc/systemd/system
-sudo cp env.sh /etc/ros
 sudo cp roslaunch.service /etc/systemd/system
 sudo cp roslaunch /usr/sbin
 
