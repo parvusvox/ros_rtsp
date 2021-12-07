@@ -17,6 +17,8 @@ catkin_make pkg:=ros_rtsp
 
 cd ~/rtsp_ws/src/ros_rtsp
 USERNAME=$(whoami)
+ROSVER=$(rosversion -d)
+sed -i "s/ROSVER/${ROSVER}/g" roscore_temp.service
 sed "s/USERNAME/${USERNAME}/g" roscore_temp.service > roscore.service
 sed "s/USERNAME/${USERNAME}/g" roslaunch_temp > roslaunch
 sed "s/USERNAME/${USERNAME}/g" roslaunch_temp.service > roslaunch.service
